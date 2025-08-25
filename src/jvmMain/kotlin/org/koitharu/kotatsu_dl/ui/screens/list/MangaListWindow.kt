@@ -70,6 +70,7 @@ class MangaListWindow(
 			icon = painterResource("icon4xs.png"),
 			resizable = true,
 		) {
+			window.minimumSize = java.awt.Dimension(400, 300)
 			var error by rememberErrorHandler()
 			var submittedQuery by rememberSaveable { mutableStateOf("") }
 			val content = remember { mutableStateListOf<Manga>() }
@@ -202,7 +203,7 @@ class MangaListWindow(
 			content.isNotEmpty() -> {
 				LazyVerticalGrid(
 					modifier = Modifier.padding(horizontal = 6.dp),
-					columns = GridCells.Adaptive(minSize = 142.dp),
+					columns = GridCells.Adaptive(minSize = 140.dp),
 					state = listState,
 				) {
 					items(content) { manga ->

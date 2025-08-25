@@ -5,6 +5,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.unit.DpSize
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.WindowPlacement
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
@@ -46,7 +48,10 @@ fun main() {
 				LocalResources provides remember { Resources() },
 			) {
 				MangaListWindow(
-					state = rememberWindowState(placement = WindowPlacement.Floating),
+					state = rememberWindowState(
+						placement = WindowPlacement.Floating,
+						size = DpSize(1200.dp, 800.dp)
+					),
 					onClose = ::exitApplication,
 					wm = wm,
 				).invoke()
